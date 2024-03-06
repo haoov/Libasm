@@ -1,5 +1,4 @@
-section .data
-	errno_location dq __errno_location ; store the address of __errno_location in a variable
+;size_t ft_write(int fildes, const void *buf, size_t nbyte);
 
 section .text
 	global ft_write
@@ -15,7 +14,7 @@ ft_write:
 ft_write_error:
 	neg rax ; negate rax to get the error number
 	mov rdi, rax ; store the error number in errno
-	call [rel errno_location] ; call the libc function to set errno
+	call __errno_location wrt ..plt ; call the libc function to get errno variables address
 	mov [rax], rdi ; store the error number in errno
 	mov rax, -1 ; set rax to -1 to indicate an error
 	ret ; return

@@ -8,9 +8,9 @@ ft_strcmp_loop:
 	mov al, [rdi + rcx] ; al = *s1
 	mov bl, [rsi + rcx] ; bl = *s2
 	inc rcx ; rcx++
-	test al, 0 ; if al == 0
+	test al, al ; if al == 0
 	jz ft_strcmp_return ; return rax
-	test bl, 0 ; if bl == 0
+	test bl, bl ; if bl == 0
 	jz ft_strcmp_return ; return rax
 	cmp al, bl ; compare *s1 and *s2
 	je ft_strcmp_loop ; if *s1 == *s2, continue
