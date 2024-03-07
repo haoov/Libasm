@@ -33,7 +33,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.s
 	@$(CASM) $< -o $@
 	@echo Building $(notdir $@)
 
-test : $(TARGET)
+test : $(TARGET) $(PROJDIR)/main.c
 	@gcc -g -o test main.c $< -I $(INCDIR)
 	@echo Building test
 

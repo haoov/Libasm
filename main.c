@@ -50,5 +50,31 @@ int main() {
 	printf("string: 'test'\t\tresult: '%s'\n", str);
 	printf("string: ''\t\tresult: '%s'\n", ft_strdup(""));
 	free(str);
+
+	//ft_atoi_base testing
+	printf("\nft_atoi_base:\n");
+	printf("string: '  ++12'\tbase: '0123456789'\tresult: %d\n", ft_atoi_base("12", "0123456789"));
+	printf("string: '-12'\t\tbase: '0123456789'\tresult: %d\n", ft_atoi_base("-12", "0123456789"));
+	printf("string: '11111111'\tbase: '01'\t\tresult: %d\n", ft_atoi_base("11111111", "01"));
+	printf("string: '546567'\tbase: '+0123'\t\tresult: %d\n", ft_atoi_base("12", "+0123"));
+
+	//ft_list_push_front testing
+	printf("\nft_list_push_front:\n");
+	t_list *list = NULL;
+	ft_list_push_front(&list, "2test");
+	printf("list->data: '%s'\t\tlist->next: %p\n", (char*)list->data, list->next);
+	ft_list_push_front(&list, "1test");
+	printf("list->data: '%s'\t\tlist->next: %p\n", (char*)list->data, list->next);
+	printf("list->next->data: '%s'\tlist->next->next: %p\n", (char*)list->next->data, list->next->next);
+
+	//ft_list_size testing
+	printf("\nft_list_size:\n");
+	printf("list size: %ld\n", ft_list_size(list));
+
+	//ft_list_sort testing
+	printf("\nft_list_sort:\n");
+	ft_list_sort(&list, ft_strcmp);
+	printf("list->data: '%s'\t\tlist->next->data: %s\n", (char*)list->data, (char*)list->next->data);
+
 	return (0);
 }
