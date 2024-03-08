@@ -45,7 +45,7 @@ ft_list_remove_if:
 		mov rbx, [r9+8]
 		cmp r10, r9
 		jz .update_head
-		mov [r8+8], rbx
+		mov qword [r8+8], rbx
 		.free_elem:
 			mov rdi, r9
 			call rcx
@@ -60,5 +60,5 @@ ft_list_remove_if:
 	;return to the caller
 	.return:
 		pop rdi
-		mov [rdi], r10
+		mov qword [rdi], r10
 		ret
