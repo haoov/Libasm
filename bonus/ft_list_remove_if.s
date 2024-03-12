@@ -14,6 +14,14 @@ ft_list_remove_if:
 	;store the list head in r8 and copy it in r9
 	push rbx
 	push rdi
+	test rdi, rdi
+	jz .return
+	test rsi, rsi
+	jz .return
+	test rdx, rdx
+	jz .return
+	test rcx, rcx
+	jz .return
 	mov r8, [rdi]
 	mov r9, r8
 	mov r10, r8

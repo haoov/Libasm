@@ -72,7 +72,7 @@ int main() {
 
 	//ft_atoi_base testing
 	printf("\nFT_ATOI_BASE:\n\n");
-	printf("string: '10'\t\tbase: '01'\t\tresult: %d\n", ft_atoi_base("10", "01"));
+	printf("string: '501'\t\tbase: 'null'\t\tresult: %d\n", ft_atoi_base("10", NULL));
 	printf("string: '  ++12'\tbase: '0123456789'\tresult: %d\n", ft_atoi_base(" ++12", "0123456789"));
 	printf("string: '-12'\t\tbase: '0123456789'\tresult: %d\n", ft_atoi_base("-12", "0123456789"));
 	printf("string: '11111111'\tbase: '01'\t\tresult: %d\n", ft_atoi_base("11111111", "01"));

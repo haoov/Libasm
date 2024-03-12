@@ -76,6 +76,8 @@ ft_atoi_base:
 	xor rdx, rdx
 	mov r8, 1
 	push rdi
+	test rdi, rdi
+	jz .exit_failure
 	mov rdi, rsi
 	call ft_check_base
 	cmp rax, -1

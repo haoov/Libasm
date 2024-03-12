@@ -5,6 +5,10 @@ section .text
 
 ft_list_sort:
 	push rdi
+	test rdi, rdi
+	jz .return
+	test rsi, rsi
+	jz .return
 	mov r8, [rdi]
 	test r8, r8
 	jz .return
