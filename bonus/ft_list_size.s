@@ -10,7 +10,7 @@ ft_list_size:
 		jz .return
 		inc rcx
 		mov rdi, [rdi + 8]
+		jmp .count
 	.return:
-		inc rcx
 		mov rax, rcx
 		ret

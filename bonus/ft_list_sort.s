@@ -27,7 +27,7 @@ ft_list_sort:
 			mov qword [r9], rax
 			pop rdi
 			mov r8, [rdi]
-			pus rdi
+			push rdi
 			jmp .cmp_loop
 	.return:
 		pop rdi

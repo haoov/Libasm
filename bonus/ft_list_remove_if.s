@@ -12,6 +12,7 @@ ft_list_remove_if:
 
 	;store the list head pointer address in the stack
 	;store the list head in r8 and copy it in r9
+	;store the free_fct in r11
 	push rdi 
 	mov r8, [rdi]
 	mov r9, r8
@@ -27,7 +28,9 @@ ft_list_remove_if:
 		test r9, r9
 		jz .return
 		mov rdi, [r9]
+		push rcx
 		call rdx
+		pop rcx
 		test rax, rax
 		jz .remove_elem
 	.next_elem:
@@ -47,10 +50,17 @@ ft_list_remove_if:
 		jz .update_head
 		mov qword [r8+8], rbx
 		.free_elem:
-			mov rdi, r9
+			push rdx
+			push rsi
+			push rcx
+			mov rdi, [r9]
 			call rcx
+			mov rdi, r9
 			call free wrt ..plt
 			mov r9, rbx
+			pop rcx
+			pop rsi
+			pop rdx
 			jmp .cmp
 		.update_head:
 			mov r10, rbx

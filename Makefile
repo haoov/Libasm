@@ -4,6 +4,7 @@
 TARGET		=	libasm.a
 PROJDIR		=	$(realpath $(CURDIR))
 SRCDIR		=	$(PROJDIR)/srcs
+BNSDIR		=	$(PROJDIR)/bonus
 INCDIR		=	$(PROJDIR)/incs
 OBJDIR		=	$(PROJDIR)/objs
 
@@ -17,7 +18,9 @@ INCLUDE		=	-I $(INCDIR)
 #                Files               #
 #------------------------------------#
 SRCS		=	$(shell find $(SRCDIR) -type f -name '*'.s)
+BNSRC		=	$(shell find $(BNSDIR) -type f -name '*'.s)
 OBJS		=	$(patsubst $(SRCDIR)/%,$(OBJDIR)/%,$(SRCS:.s=.o))
+BNOBJ		=	$(patsubst $(BNSDIR)/%,$(OBJDIR)/%,$(BNSRC:.s=.o))
 
 #------------------------------------#
 #                Rules               #
@@ -29,6 +32,15 @@ $(TARGET) : $(OBJS)
 	@echo Creating library $@
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.s
+	@mkdir -p $(dir $@)
+	@$(CASM) $< -o $@
+	@echo Building $(notdir $@)
+
+bonus : $(BNOBJ) $(TARGET)
+	@ar -rcs $(TARGET) $^
+	@echo adding bonus to lib
+
+$(OBJDIR)/%.o : $(BNSDIR)/%.s
 	@mkdir -p $(dir $@)
 	@$(CASM) $< -o $@
 	@echo Building $(notdir $@)
