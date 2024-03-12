@@ -28,8 +28,8 @@ ft_list_push_front:
 	jz .return_null
 	test rdi, rdi
 	jz .return
-	mov rbx, [rdi]
-	mov [rax + 8], rbx
+	mov rdx, [rdi]
+	mov [rax + 8], rdx
 	.return:
 		mov qword [rdi], rax
 		ret
