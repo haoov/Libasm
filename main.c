@@ -65,7 +65,9 @@ int main() {
 	printf("\nFT_STRDUP:\n\n");
 	char *str = ft_strdup("test");
 	printf("string: 'test'\t\tresult: '%s'\n", str);
-	printf("string: ''\t\tresult: '%s'\n", ft_strdup(""));
+	free(str);
+	str = ft_strdup("");
+	printf("string: ''\t\tresult: '%s'\n", str);
 	free(str);
 
 	//ft_atoi_base testing

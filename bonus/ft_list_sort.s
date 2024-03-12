@@ -22,8 +22,8 @@ ft_list_sort:
 		jmp .cmp_loop
 		.swap:
 			mov rax, [r8]
-			mov rbx, [r9]
-			mov qword [r8], rbx
+			mov rdx, [r9]
+			mov qword [r8], rdx
 			mov qword [r9], rax
 			pop rdi
 			mov r8, [rdi]
