@@ -56,7 +56,7 @@ int main() {
 	printf("buf size = 6\tbuf = ''\n");
 	printf("call to ft_read(0, buf, 5)\n");
 	res = ft_read(0, buf, 5);
-	printf("buf: '%s'\t\t\tresult = %d\n", buf, res);
+	printf("\nbuf: '%s'\t\t\tresult = %d\n", buf, res);
 	printf("call to ft_read(6, buf, 5)\n");
 	res = ft_read(6, buf, 5);
 	printf("result = %d\terrno = %d\n", res, errno);

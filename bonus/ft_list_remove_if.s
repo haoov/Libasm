@@ -37,7 +37,17 @@ ft_list_remove_if:
 		jz .return
 		mov rdi, [r9]
 		push rcx
+		push rsi
+		push rdx
+		push r8
+		push r9
+		push r10
 		call rdx
+		pop r10
+		pop r9
+		pop r8
+		pop rdx
+		pop rsi
 		pop rcx
 		test rax, rax
 		jz .remove_elem
@@ -61,6 +71,7 @@ ft_list_remove_if:
 			push rdx
 			push rsi
 			push rcx
+			push r8
 			push r10
 			mov rdi, [r9]
 			call rcx
@@ -68,6 +79,7 @@ ft_list_remove_if:
 			call free wrt ..plt
 			mov r9, rbx
 			pop r10
+			pop r8
 			pop rcx
 			pop rsi
 			pop rdx
